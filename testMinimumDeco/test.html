@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Minimum_Deco</title>
+</head>
+<body>
+<h1 id="title-header">Minimum Deco</h1>
+
+<h3 id="gas-header">Gas__________ Time</h3>
+<input id="input" placeholder="Gas" name="name"/>
+
+<input id="input2" placeholder="Time" name="name"/>
+<p id="values0"></p>
+<p id="values"></p>
+<p id="values2"></p>
+<br>
+
+<button id="clear">Calc</button>
+
+
+<script>
+const input = document.getElementById('input');
+const input2 = document.getElementById('input2');
+const log0 = document.getElementById('values0');
+const log = document.getElementById('values');
+const log2 = document.getElementById('values2');
+var button = document.getElementById('clear');
+let gas = "";
+let time = "";
+let hypoxic = false;
+let nonStandard = false;
+
+
+	input.addEventListener('input', updateValue);
+	function updateValue(e) {
+	    gas = e.target.value;
+	    if(gas > "29" && gas < "33"){
+	    	gas = `Nitrox ${gas}`;
+	    	nonStandard = false;
+	    	hypoxic = false;
+	    }
+	    else if((gas >"21" && gas < "30")||(gas>"32")){
+	    	gas = "Standard gases and air only";
+	    	nonStandard = true;
+	    }
+	    else if(gas == "21"){
+	    	gas = `You dive Air`;
+	    }
+	    else if(gas < "21"){
+	    	gas = `Your mix is hypoxic!`;
+	    	hypoxic = true;
+	    }
+
+
+	}
+
+	input2.addEventListener('input', updateValue2);
+	function updateValue2(f) {
+	    time = `Dive time ${f.target.value}`;
+
+	}
+
+button.addEventListener('click', () => {
+	if(hypoxic || nonStandard){
+		log0.textContent = gas;
+	}
+	else{
+		log0.textContent = `Diving calculated for ${gas} and ${time} min`;
+		//log.textContent = gas;
+		//log2.textContent = time;
+	}
+
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="skeleton.css" />
+    <title>Londyn Airbnb</title>
+  </head>
+
+  <script>
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var response = JSON.parse(xhttp.responseText);
+        var Airbnb = response.londyn.airbnb;
+
+        document.getElementById("host").innerHTML = Airbnb.host;
+        document.getElementById("telefon").innerHTML = Airbnb.telefon;
+        document.getElementById("adresLong").innerHTML = Airbnb.adresLong;
+        document.getElementById("adres").innerHTML = Airbnb.adres;
+        document.getElementById("placeDescription").innerHTML =
+          Airbnb.placeDescription;
+        document.getElementById("checkIn").innerHTML = Airbnb.checkIn;
+        document.getElementById("checkOut").innerHTML = Airbnb.checkOut;
+        document.getElementById("booking#").innerHTML = Airbnb.booking;
+        document.getElementById("regulations").innerHTML = Airbnb.regulations;
+        document.getElementById("transport").innerHTML = Airbnb.transport;
+        document.getElementById("transportDescription").innerHTML =
+          Airbnb.transportDescription;
+      }
+    };
+    //xhttp.open("GET", "filename", true);
+    xhttp.open("GET", "londyn.json", true);
+    xhttp.send();
+  </script>
+
+  <style>
+    body {
+      margin-top: 40px;
+      margin-left: 5px;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <h3>Londyn Airbnb</h3>
+      <a href="londyn.html"><button>Back</button></a>
+      <a href="lonAirbnbTransfer.html"><button>Dojazd</button></a>
+      <div class="row">
+        <div class="six columns">
+          <h5>Host</h5>
+          <p id="host"></p>
+          <h5>phone</h5>
+          <p id="telefon"></p>
+          <h5>Address</h5>
+          <p id="adresLong"></p>
+          <p id="adres"></p>
+          <p id="placeDescription"></p>
+        </div>
+        <div class="six columns">
+          <h5>Check In/Out</h5>
+          <p id="checkIn"></p>
+          <p id="checkOut"></p>
+          <h5>Booking#</h5>
+          <p id="booking#"></p>
+          <h5>Regulations</h5>
+          <p id="regulations"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <h5>Transport</h5>
+          <p id="transport">Transport</p>
+          <p id="transportDescription"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

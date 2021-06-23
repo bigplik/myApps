@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="skeleton.css">
+  <title>Chiny</title>
+</head>
+
+<style>
+        body {
+            margin-top: 40px;
+            margin-left: 5px;
+    
+        }
+    </style>
+
+<script>
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            
+            //JSON.parse(xhttp.responseText).ambasada get access to the object ambasada
+            //in .json file and change it into string by JSON.parse
+            var ambasada = JSON.parse(xhttp.responseText).ambasada;
+            
+            document.getElementById("adres").innerHTML = ambasada.adres; 
+            document.getElementById("adresChina").innerHTML = ambasada.adresChina;
+            document.getElementById("telefon").innerHTML = ambasada.telefon;
+            document.getElementById("alarmowy").innerHTML = ambasada.alarmowy;
+            document.getElementById("email").innerHTML = ambasada.email;
+            document.getElementById("godziny").innerHTML = ambasada.godziny;
+            }
+        };
+        //xhttp.open("GET", "filename", true);
+        xhttp.open("GET", "chiny.json", true);
+        xhttp.send();
+</script>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                <h3>Polish Embassy China</h3>
+                <a href='index.html'><button>Home</button></a>
+                <a href= 'vizaChina.html'><button>Viza</button></a>
+                <a href="vizaChiny144H.html"><button>Viza 144h</button></a>
+                <h3></h3>
+            </div>
+        <div class="row">
+            <div class="six columns">
+                <h4>Address</h4>
+                <p id="adres"></p>
+                <h3>波兰大使馆</h3>
+                <p id="adresChina"></p>
+            </div>
+            <div class="six columns">
+                <p id="telefon"></p>
+                <p id="alarmowy"></p>
+                <p id="email"></p>
+                <p id="godziny"></p>
+            </div>
+        </div>
+        <div class="row">
+                <div class="six columns">
+                    <p></p>
+                </div>
+                <div class="six columns">
+                    <h5>Capital International Airport (PEK)</h5>
+                    <h5>首都国际机场</h5>     
+                </div>
+        </div>
+    </div>
+
+</body>
+</html>

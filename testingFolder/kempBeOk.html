@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="skeleton.css" />
+    <title>savoir-vivre</title>
+  </head>
+
+  <style>
+    body {
+      margin-top: 40px;
+      margin-left: 5px;
+    }
+  </style>
+
+  <script>
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var response = JSON.parse(xhttp.responseText);
+        var kempBeOk = response.kempBeOk;
+
+        var title = "<h3>" + kempBeOk.title + "</h3>";
+        var titleText = kempBeOk.text0;
+        var smieci = "<h5>" + kempBeOk.smieci + "</h5>";
+        var smieciText = kempBeOk.smieciText;
+        var kangury = `<h5> ${kempBeOk.kangury} </5>`;
+        var kanguryText = kempBeOk.kanguryText;
+        var toaleta = `<h5> ${kempBeOk.toaleta} </h5>`;
+        var toaletaText = kempBeOk.toaletaText;
+        var halasText = kempBeOk.halasText;
+        var ogien = "<h5>" + kempBeOk.ogien + "</h5>";
+        var ogienText = kempBeOk.ogienText;
+        var przestrzen = "<h5>" + kempBeOk.przestrzen + "</h5";
+        var przestrzenText = kempBeOk.przestrzenText;
+        var zakazy = `<h5> ${kempBeOk.zakazy} </h5>`;
+        var zakazyText = kempBeOk.zakazyText;
+        var puenta = `<h5> ${kempBeOk.puenta} </h5>`;
+        var puentaText = kempBeOk.puentaText;
+
+        document.getElementById("title").innerHTML = title;
+        document.getElementById("titleText").innerHTML = titleText;
+        document.getElementById("smieci").innerHTML = smieci;
+        document.getElementById("smieciText").innerHTML = smieciText;
+        document.getElementById("kangury").innerHTML = kangury;
+        document.getElementById("kanguryText").innerHTML = kanguryText;
+        document.getElementById("toaleta").innerHTML = toaleta;
+        document.getElementById("toaletaText").innerHTML = toaletaText;
+        document.getElementById("halas").innerHTML = halasText;
+        document.getElementById("ogien").innerHTML = ogien;
+        document.getElementById("ogienText").innerHTML = ogienText;
+        document.getElementById("przestrzen").innerHTML = przestrzen;
+        document.getElementById("przestrzenText").innerHTML = przestrzenText;
+        document.getElementById("zakazy").innerHTML = zakazy;
+        document.getElementById("zakazyText").innerHTML = zakazyText;
+        document.getElementById("puenta").innerHTML = puenta;
+        document.getElementById("puentaText").innerHTML = puentaText;
+      }
+    };
+    //xhttp.open("GET", "filename", true);
+    xhttp.open("GET", "kempBeOk.json", true);
+    xhttp.send();
+  </script>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <p id="title"></p>
+          <a href="kempingi.html"><button>Back</button></a>
+          <p id="titleText"></p>
+          <p id="smieci"></p>
+          <p id="smieciText"></p>
+          <p id="kangury"></p>
+          <p id="kanguryText"></p>
+          <p id="toaleta"></p>
+          <p id="toaletaText"></p>
+          <h5>Hałas</h5>
+          <p id="halas"></p>
+          <p id="ogien"></p>
+          <p id="ogienText"></p>
+          <p id="przestrzen"></p>
+          <p id="przestrzenText"></p>
+          <p id="zakazy"></p>
+          <p id="zakazyText"></p>
+          <p id="puenta"></p>
+          <p id="puentaText"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
